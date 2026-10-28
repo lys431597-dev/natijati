@@ -1,156 +1,117 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>نتيجتي الدراسية</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      background: #f0f7f2;
-      color: #222;
-      min-height: 100vh;
-    }
-
-    header {
-      background: #16834a;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-    }
-
-    .flag {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    header h1 {
-      margin: 8px 0;
-      font-size: 28px;
-    }
-
-    header p {
-      margin: 8px 0 0;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 430px;
-      margin: 35px auto;
-      padding: 25px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 5px 20px #00000012;
-    }
-
-    h2 {
-      text-align: center;
-      color: #16834a;
-      margin-top: 0;
-    }
-
-    label {
-      display: block;
-      margin: 18px 0 8px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-      outline-color: #16834a;
-    }
-
-    button {
-      width: 100%;
-      margin-top: 23px;
-      padding: 14px;
-      background: #16834a;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #106638;
-    }
-
-    #message {
-      display: none;
-      margin-top: 18px;
-      padding: 13px;
-      background: #fff4d8;
-      color: #745400;
-      border-radius: 8px;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      color: #666;
-      font-size: 13px;
-      padding: 15px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نتيجتي الدراسية</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f1f7f2;
+  color: #222;
+  text-align: center;
+}
+header {
+  background: white;
+  padding: 20px;
+  border-bottom: 4px solid #168447;
+}
+.flag {
+  width: 105px;
+  height: 65px;
+  margin: auto;
+  background: linear-gradient(to bottom, #ce2028 33.33%, white 33.33%, white 66.66%, black 66.66%);
+  border: 1px solid #ddd;
+}
+h1 { color: #168447; }
+main {
+  max-width: 430px;
+  margin: 25px auto;
+  padding: 22px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 3px 14px #0001;
+}
+input, button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 13px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+input { border: 1px solid #bbb; }
+button {
+  background: #168447;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+#message { line-height: 1.8; }
+#resultImage {
+  display: none;
+  width: 100%;
+  height: auto;
+  margin-top: 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+footer { padding: 20px; color: #666; }
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="flag">🇮🇶</div>
-    <h1>نتيجتي الدراسية</h1>
-    <p>الاستعلام عن النتائج الدراسية</p>
-  </header>
+<header>
+  <div class="flag"></div>
+  <h1>نتيجتي الدراسية</h1>
+  <p>نظام الاستعلام عن النتيجة</p>
+</header>
 
-  <main class="container">
-    <h2>البحث عن النتيجة</h2>
+<main>
+  <h2>أدخل معلوماتك</h2>
 
-    <form id="resultForm">
-      <label for="examNumber">الرقم الامتحاني</label>
-      <input
-        type="text"
-        id="examNumber"
-        placeholder="أدخل الرقم الامتحاني"
-        required
-      >
+  <form id="resultForm">
+    <input id="code" type="text" placeholder="أدخل الرمز" required>
+    <input id="secret" type="password" placeholder="أدخل الكود السري" required>
+    <button type="submit">بحث عن النتيجة</button>
+  </form>
 
-      <label for="secretCode">الرمز السري</label>
-      <input
-        type="password"
-        id="secretCode"
-        placeholder="أدخل الرمز السري"
-        required
-      >
+  <p id="message"></p>
 
-      <button type="submit">بحث عن النتيجة</button>
-    </form>
+  <img id="resultImage" src="natija.jpg" alt="صورة النتيجة">
+</main>
 
-    <div id="message">
-      هذه نسخة تجريبية من الموقع، ولم يتم ربطها بقاعدة بيانات النتائج.
-    </div>
-  </main>
+<footer>نتيجتي الدراسية</footer>
 
-  <footer>
-    موقع شخصي تجريبي لعرض واجهة النتائج الدراسية
-  </footer>
+<script>
+const correctCode = "92565592431265";
+const correctSecret = "650471978";
 
-  <script>
-    document.getElementById("resultForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      document.getElementById("message").style.display = "block";
-    });
-  </script>
+document.getElementById("resultForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const code = document.getElementById("code").value.trim();
+  const secret = document.getElementById("secret").value.trim();
+  const message = document.getElementById("message");
+  const image = document.getElementById("resultImage");
+
+  image.style.display = "none";
+
+  if (code === correctCode && secret === correctSecret) {
+    message.textContent = "جارٍ البحث عن النتيجة...";
+    setTimeout(function() {
+      message.textContent = "تم العثور على النتيجة";
+      image.style.display = "block";
+      image.onerror = function() {
+        message.textContent = "تعذر تحميل الصورة. تأكد من أن اسمها natija.jpg";
+      };
+    }, 1200);
+  } else {
+    message.textContent = "الرمز أو الكود السري غير صحيح";
+  }
+});
+</script>
 
 </body>
 </html>
