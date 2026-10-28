@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نتيجتي الدراسية</title>
+<style>
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, sans-serif;
+  background: #f5f8f6;
+  color: #173d2c;
+}
+header {
+  background: #087044;
+  color: white;
+  padding: 22px 12px;
+  text-align: center;
+  border-bottom: 5px solid #d5a928;
+}
+.flag {
+  display: inline-block;
+  width: 72px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 11px;
+}
+.flag div { height: 18px; }
+.red { background: #ce2028; }
+.white { background: white; color: #087044; }
+.black { background: #171717; }
+main {
+  max-width: 430px;
+  margin: 35px auto;
+  padding: 0 16px;
+}
+.card {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 16px;
+  border: 1px solid #d5e5dc;
+  box-shadow: 0 8px 25px #123b2410;
+}
+h2 { text-align: center; color: #087044; }
+p { text-align: center; color: #62766a; line-height: 1.8; }
+label {
+  display: block;
+  margin: 18px 0 8px;
+  font-weight: bold;
+}
+input {
+  width: 100%;
+  padding: 13px;
+  box-sizing: border-box;
+  border: 1px solid #b8d0c2;
+  border-radius: 9px;
+  font-size: 16px;
+}
+button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px;
+  background: #087044;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  font-size: 17px;
+  font-weight: bold;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #62766a;
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="flag">
+    <div class="red"></div>
+    <div class="white">الله أكبر</div>
+    <div class="black"></div>
+  </div>
+  <h1>نتيجتي الدراسية</h1>
+  <div>نتائج الثالث متوسط · العراق</div>
+</header>
+<main>
+  <div class="card">
+    <h2>🎓 البحث عن النتيجة</h2>
+    <p>أدخل معلوماتك للاطلاع على النتيجة</p>
+    <form id="searchForm">
+      <label for="exam">الرقم الامتحاني</label>
+      <input id="exam" placeholder="أدخل الرقم الامتحاني" required>
+      <label for="secret">الرمز السري</label>
+      <input id="secret" type="password"
+        placeholder="أدخل الرمز السري" required>
+      <button type="submit">بحث عن النتيجة</button>
+    </form>
+    <p id="message" aria-live="polite"></p>
+  </div>
+</main>
+<footer>
+  موقع شخصي غير تابع لوزارة التربية العراقية
+</footer>
+<script>
+document.getElementById("searchForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("message").textContent =
+    "الواجهة جاهزة، وسيتم إضافة نتيجتك الشخصية لاحقاً.";
+});
+</script>
+</body>
+</html>
